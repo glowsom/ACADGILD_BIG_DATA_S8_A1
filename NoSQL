@@ -1,4 +1,20 @@
-1.  NoSQL database is a database management system that can support structured, semi-structured and unstructured data,
-while providing scalability performance and high availability.
+1. NoSQL database is a database management system that can support structured, semi-structured and unstructured data, while
+providing horizontal scalability performance and high availability. It provides faster data ingestion.
 
-2.  
+2. Data is stored in a single table instead of multiples tables, so there is no need to join tables.
+
+3. Column Family provides shared features (like access pattern) to all it’s columns that are created within them. For that
+reason it is meant for containing columns which have related data. Example Column family ‘Student_id’ can have 3 columns namely
+‘first_name’, ‘middle_name’, ‘last_name’ and ‘roll_number’.
+
+4. There is no limit to number of columns that can be added to HBase table.
+
+5. The presence of column family definition allows columns within it to be defined on the fly without issues.
+
+6. HMaster divides tables horizontally into regions. The region servers (nodes in the cluster) contain all the regions based on
+assignment and capacity, and they serve data for reads and writes.
+
+7. When new data is inserted into HBase table, it is stored in MemStore of that column family in a sorted manner, before it is
+written to disk. If the data is frequently read, Block Cache stores that data for quicker reads. Write ahead log (WAL) stores
+that data which hasn’t been persisted to permanent storage for recovery purposes. Hfiles store the rows as sorted Key-value
+pairs on disk.
